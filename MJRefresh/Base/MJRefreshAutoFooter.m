@@ -153,7 +153,10 @@
     MJRefreshCheckState
     
     if (state == MJRefreshStateRefreshing) {
-        [self executeRefreshingCallback];
+//        [self executeRefreshingCallback];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self executeRefreshingCallback];
+        });
     } else if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
         if (self.triggerByDrag) {
             if (!self.unlimitedTrigger) {
