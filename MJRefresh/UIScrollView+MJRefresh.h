@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - other
 - (NSInteger)mj_totalDataCount;
-
+@property (copy, nonatomic) void (^mj_reloadDataBlock)(NSInteger totalDataCount);
 @end
 
 NS_ASSUME_NONNULL_END
